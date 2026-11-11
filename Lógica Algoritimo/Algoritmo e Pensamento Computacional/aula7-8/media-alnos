@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    int quantidadeDeAlunos;
+    float somaNotas = 0.0f, nota, mediaTurma;
+
+    
+    do {
+        printf("Digite a quantidade de alunos: ");
+        scanf("%d", &quantidadeDeAlunos);
+
+        if (quantidadeDeAlunos <= 0) {
+            printf("Quantidade invalida de alunos!\n");
+        }
+
+    } while (quantidadeDeAlunos <= 0);
+
+    
+    for (int i = 1; i <= quantidadeDeAlunos; i++) {
+
+        do {
+            printf("Digite a nota do aluno %d: ", i);
+            scanf("%f", &nota);
+
+            if (nota < 0 || nota > 10) {
+                printf("Nota invalida! Digite novamente.\n");
+            }
+
+        } while (nota < 0 || nota > 10);
+
+        somaNotas += nota;
+    }
+
+    
+    mediaTurma = somaNotas / quantidadeDeAlunos;
+
+    printf("\nMedia da turma: %.2f\n", mediaTurma);
+
+    return 0;
+}

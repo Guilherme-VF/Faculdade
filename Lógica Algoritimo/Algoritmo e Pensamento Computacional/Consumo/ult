@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main()
+{
+   
+    FILE *arquivo;
+    char linha[100];
+    
+    arquivo = fopen("consumo.txt", "a");
+    
+    if (arquivo == NULL){
+        printf("Não foi possivel criar o arquivo .\n");
+        return 1;
+    }
+    
+  printf("Conteúdo do arquivo");
+  
+  while(fgets(linha, sizeof(linha), arquivo)!= NULL){
+      printf("%s", linha);
+  }
+    fclose(arquivo);
+    
+    printf("Consumo gravado com sucesso :)");
+    
+    return 0;
+}
